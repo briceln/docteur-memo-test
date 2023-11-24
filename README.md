@@ -12,6 +12,8 @@ $ docker-compose build
 $ docker-compose up
 ```
 
+The database should initialise on first start-up with the user data from the example.  
+
 The REST API can be accessed at the following address: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 In this mode, the second API with /predict_patient endpoint and mongoDB are not accessible from the outside.
