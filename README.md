@@ -29,6 +29,68 @@ The result of the coverage can be seen by opening the page **index.html** inside
 
 In this mode, all APIs and mongoDB are accessible from the outside.
 
+### API DOCUMENTATION
+
+```
+PUT create_user`
+Parameters :
+- username = string : name of the user
+- password = string : user password
+- status = string : user status (caregiver, patient, ...)
+- different args depending on the type of user (type of healthcare professionnal, ...)
+
+Response : 
+{
+    "data": {
+        "id": "6560a29967cb0de766dbd84f"
+    }
+}
+```
+
+```
+POST connect_user`
+Parameters :
+- username = string : name of the user
+- password = string : user password
+
+Response : 
+{
+    "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNjU2MGEyOTk2N2NiMGRlNzY2ZGJkODRmIiwiaWF0IjoxNzAwODMxOTk1LCJleHAiOjE3MDA4MzU1OTV9.PU-VRzfwMR4lLbL3DjUT5RD5TeZQA8Xvm-kQJleOkDY"
+    }
+}
+```
+
+```
+GET count_patient`
+Parameters :
+- score = int : cut-off value for memory_score
+- age (optionnal) = int : cut-off value for age
+- order (optionnal) = ['gt', 'lt'] : higher or lower than age cut-off value
+
+Response : 
+{
+    "data": {
+        "count": 1
+    }
+}
+```
+
+```
+GET beta/predict_patient`
+Headers:
+- Authorization : Bearer token
+Parameters :
+- username = string : patient name
+
+Response : 
+{
+    "data": {
+        "prediction": 13
+    }
+}
+```
+
 ### USEFUL INFORMATION
 
 #### DATABASE CREDENTIALS
