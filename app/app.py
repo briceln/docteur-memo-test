@@ -97,7 +97,9 @@ def create_app(config = {}):
         if username is None:
             return jsonify({'message': {"username": ["Missing data for required field."]}, "error": "Bad Request", "data": None}), status.HTTP_400_BAD_REQUEST
         response = requests.get('http://predict_app_host:5001/predict_patient', params={'username': username})
-        return jsonify({"data": response.json()}), response.status_code
+        if response.status_code == status.HTTP_200_OK:
+            return jsonify({"data": response.json()}), response.status_code
+        return jsonify(response.json()), response.status_code
 
     @app.route('/count_patient', methods=['GET'])
     def count_patient():
