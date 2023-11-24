@@ -31,6 +31,9 @@ In this mode, all APIs and mongoDB are accessible from the outside.
 
 ### API DOCUMENTATION
 
+#### A postman profile can be imported to test the different api routes :  
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://god.gw.postman.com/run-collection/6934098-90e32d52-50a3-4b67-9028-b5f916ff0ef0?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D6934098-90e32d52-50a3-4b67-9028-b5f916ff0ef0%26entityType%3Dcollection%26workspaceId%3D1efa240f-516b-4c55-a005-3e9f1c8dd9ca)
+
 ```
 PUT create_user`
 Parameters :
