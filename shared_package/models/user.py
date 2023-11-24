@@ -1,4 +1,4 @@
-from db import DatabaseSingleton
+from models.db import DatabaseSingleton
 from werkzeug.security import generate_password_hash
 
 class User:

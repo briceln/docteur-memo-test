@@ -25,7 +25,9 @@ services:
       - mongodb
       - predict_app
   predict_app:
-    build: ./predict_app
+    build:  
+      context: .
+      dockerfile: predict_app/Dockerfile
     command: python -u predict_app/predict_app.py
     hostname: predict_app_host
     ports:
