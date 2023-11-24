@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:6-jammy
+    hostname: mongodb_host
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
+      - dbdata6:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: memo
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: Q44zYDpJg8GbzGtK
+  app:
+    build: 
+      context: ./
+      dockerfile: app/Dockerfile
+    command: sh -c "coverage run -m pytest -v && coverage report -m && coverage html && python -u app/app.py"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    links:
+      - mongodb
+      - predict_app
+  predict_app:
+    build: ./predict_app
+    command: python -u predict_app/predict_app.py
+    hostname: predict_app_host
+    ports:
+      - "5001:5001"
+    volumes:
+      - .:/predict_app
+    links:
+      - mongodb
+volumes:
+  dbdata6:

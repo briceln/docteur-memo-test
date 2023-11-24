@@ -1,0 +1,13 @@
+flask
+Flask-API
+marshmallow
+python-dotenv
+pymongo
+flask-login
+requests
+PyJWT
+pytest-flask
+coverage
+waitress
+paste
+sentry-sdk[flask]
