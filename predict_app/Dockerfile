@@ -6,5 +6,3 @@ RUN pip install -r requirements.txt
 ADD ./predict_app ./
 ADD ./shared_package ./shared_package
 ENV PYTHONPATH "${PYTHONPATH}:/predict_app/shared_package"
-RUN ls
-RUN ls -R *
