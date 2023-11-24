@@ -34,6 +34,9 @@ In this mode, all APIs and mongoDB are accessible from the outside.
 #### DATABASE CREDENTIALS
 The database connection credentials are in the .env file located at the root of /app.  
 
+#### DEFAULT USER PASSWORD
+The default user password is 'password'.
+
 #### DUPLICATE OF MODELS AND SCHEMA PACKAGES
 **Unfortunately, the python package containing the models/ and schema/ folders when copied into the docker was not detected by python, which is why a copy is included in app/ and predict_app/. One solution would be to import the package via a github repo to get around the problem.**
 
