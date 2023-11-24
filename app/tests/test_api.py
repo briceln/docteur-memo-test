@@ -427,3 +427,22 @@ def test_expired_user_access_beta_features(client):
     assert set(response.json.keys()) >= {'message', 'error', 'data'}
     assert isinstance(response.json['message'], str)
     assert response.json['message'] == 'Authentication Token has expired'
+
+def test_unknown_api_route(client):
+    headers = {
+        'Content-Type': mimetype,
+        'Accept': mimetype
+    }
+    response = client.get('/user', headers=headers)
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+    assert response.content_type == mimetype
+
+def test_sending_empty_data(client):
+    headers = {
+        'Content-Type': mimetype,
+        'Accept': mimetype
+    }
+
+    response = client.post('/connect_user', headers=headers)
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+    assert response.content_type == mimetype

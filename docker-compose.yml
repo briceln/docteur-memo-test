@@ -13,7 +13,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: Q44zYDpJg8GbzGtK
   app:
     build: 
-      context: ./
+      context: .
       dockerfile: app/Dockerfile
     command: python -u app/app.py
     restart: on-failure

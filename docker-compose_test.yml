@@ -14,7 +14,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: Q44zYDpJg8GbzGtK
   app:
     build: 
-      context: ./
+      context: .
       dockerfile: app/Dockerfile
     command: sh -c "coverage run -m pytest -v && coverage report -m && coverage html && python -u app/app.py"
     ports:
