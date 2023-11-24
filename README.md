@@ -31,9 +31,14 @@ In this mode, all APIs and mongoDB are accessible from the outside.
 
 ### USEFUL INFORMATION
 
+#### DATABASE CREDENTIALS
 The database connection credentials are in the .env file located at the root of /app.  
 
-[Sentry](https://sentry.io/) is used to monitor the performance of each route and track errors.
+#### DUPLICATE OF MODELS AND SCHEMA PACKAGES
+**Unfortunately, the python package containing the models/ and schema/ folders when copied into the docker was not detected by python, which is why a copy is included in app/ and predict_app/. One solution would be to import the package via a github repo to get around the problem.**
+
+#### WHY SENTRY
+[Sentry](https://sentry.io/) is used to monitor the performance (p50, p99, TPM) of each route and track errors.
 
 ![Sentry_api](./img/sentry_api.png)
 ![Sentry_api_test_features](./img/sentry_feature_test.png)
