@@ -57,7 +57,10 @@ def create_app(config = {}):
             return jsonify({'message': {"username": ["Missing data for required field."]}, "error": "Bad Request", "data": None}), status.HTTP_400_BAD_REQUEST
 
         user = Patient()
-        user.get(username)
+
+        if user.get(username) is None:
+            return jsonify({'message': {"username": ["User not found."]}, "error": "Not Found", "data": None}), status.HTTP_404_NOT_FOUND
+
         user_dict = user.dump()
 
         prediction = 0
